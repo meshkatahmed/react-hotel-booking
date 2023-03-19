@@ -1,0 +1,17 @@
+.navigation {
+    background-color:brown;
+    height: 70px;
+    padding: auto;
+}
+.navbrand img {
+    height: 40px;
+}
+.navitem {
+    padding: 10px;
+}
+.navitem-link {
+    font-size: large;
+    text-decoration: none;
+    text-decoration: bold;
+    color: violet;
+}

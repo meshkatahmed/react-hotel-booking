@@ -1,0 +1,12 @@
+.cardheaderfooter {
+    background-color: brown;
+    text-align: center;
+    color: violet;
+}
+.cardbody {
+    text-align: center;
+}
+.cardbutton {
+    margin-right: 100px;
+    margin-left: 100px;
+}

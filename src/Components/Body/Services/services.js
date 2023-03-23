@@ -3,7 +3,14 @@ import './services.css';
 import {Card,CardHeader,CardBody,CardFooter,Button} from 'reactstrap';
 import RoomBooking from './Room Booking/roomBooking';
 import ActivityBooking from './Activity Booking/activityBooking';
-import axios from 'axios';
+import {connect} from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        roomsLeft: state.roomsLeft,
+        activitySlotsLeft: state.activitySlotsLeft
+    }
+}
 
 class Services extends Component {
     constructor(props) {
@@ -11,8 +18,6 @@ class Services extends Component {
         this.state = {
             clickedRoom: false,
             clickedActivity: false,
-            roomsLeft: 10, 
-            activitySlotLeft: 20,
         };
     }
     informRoom = () => {
@@ -31,6 +36,7 @@ class Services extends Component {
             }
         )
     }
+    
     render() {
         if (this.state.clickedRoom) {
             return (
@@ -53,8 +59,8 @@ class Services extends Component {
                             <Button className='cardbutton btn-lg' onClick={this.informActivity}>Activity</Button>
                         </CardBody>
                         <CardFooter className='cardheaderfooter'>
-                            <h5>Rooms Left: {this.state.roomsLeft}</h5> 
-                            <h5>Activity Slot Left: {this.state.activitySlotLeft}</h5>
+                            <h5>Rooms Left: {this.props.roomsLeft}</h5> 
+                            <h5>Activity Slots Left: {this.props.activitySlotsLeft}</h5>
                         </CardFooter>
                     </Card>
                 </div>
@@ -63,4 +69,4 @@ class Services extends Component {
     }
 }
 
-export default Services;
+export default connect(mapStateToProps)(Services);
